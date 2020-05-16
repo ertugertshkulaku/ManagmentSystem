@@ -6,8 +6,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotEmpty;
 
-import com.sun.istack.NotNull;
 
 
 @Entity
@@ -16,13 +16,13 @@ public class Task {
 	@Id
 	@GeneratedValue
 	private Long id;
-	@NotNull
+	@NotEmpty
 	private String date;
-	@NotNull
+	@NotEmpty
 	private String startTime;
-	@NotNull
+	@NotEmpty
 	private String stopTime;
-	@NotNull
+	@NotEmpty
 	@Lob
 	private String descrption;
 	

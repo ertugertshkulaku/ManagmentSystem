@@ -10,20 +10,23 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
-import com.sun.istack.NotNull;
 
 
 @Entity
 public class User {
 	
 	@Id
-	@NotNull
+	@NotEmpty
+	@Email
 	@Column(unique = true)
 	private String email;
-	@NotNull
+	@NotEmpty
 	private String name;
-	
+	@Size(min = 4)
 	private String password;
 	
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
