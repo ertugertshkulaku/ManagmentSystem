@@ -42,18 +42,15 @@ public class UserService {
 
 	}
 	public User findOne(String email) {
-		User u = null;
-		List<User> userList =  userRepository.findAll();
-		if(userList !=null && userList.size()>0) {
-			for (Iterator iterator = userList.iterator(); iterator.hasNext();) {
-				User user = (User) iterator.next();
-				if (user.getEmail().equals(email)) {
-					u = user;
-					break;
-					
-				}
-			}
-		}
+		/*
+		 * User u = null; List<User> userList = userRepository.findAll(); if(userList
+		 * !=null && userList.size()>0) { for (Iterator iterator = userList.iterator();
+		 * iterator.hasNext();) { User user = (User) iterator.next(); if
+		 * (user.getEmail().equals(email)) { u = user; break;
+		 * 
+		 * } } }
+		 */
+		User  u = userRepository.findByEmail(email);
 		return u;
 	}
 	public boolean isUserPresent(String email) {
@@ -63,5 +60,11 @@ public class UserService {
 		}
 			return false;
 		
+	}
+	public List<User> findAll() {
+		return userRepository.findAll();
+	}
+	public List<User> findByName(String name) {
+		return userRepository.findByNameLike("%"+name+"%");
 	}
 }
