@@ -24,7 +24,7 @@ public class Task {
 	private String stopTime;
 	@NotEmpty
 	@Lob
-	private String descrption;
+	private String description;
 	
 	@ManyToOne
 	@JoinColumn(name = "USER_EMAIL")
@@ -37,18 +37,18 @@ public class Task {
 	}
 	
 
-	public Task(String date, String startTime, String stopTime, String descrption) {
+	public Task(String date, String startTime, String stopTime, String description) {
 		this.date = date;
 		this.startTime = startTime;
 		this.stopTime = stopTime;
-		this.descrption = descrption;
+		this.description = description;
 	}
 
-	public Task(String date, String startTime, String stopTime, String descrption, User user) {
+	public Task(String date, String startTime, String stopTime, String description, User user) {
 		this.date = date;
 		this.startTime = startTime;
 		this.stopTime = stopTime;
-		this.descrption = descrption;
+		this.description = description;
 		this.user = user;
 	}
 
@@ -84,12 +84,12 @@ public class Task {
 		this.stopTime = stopTime;
 	}
 
-	public String getDescrption() {
-		return descrption;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setDescrption(String descrption) {
-		this.descrption = descrption;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public User getUser() {
